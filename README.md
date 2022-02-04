@@ -83,7 +83,7 @@ model.score()
 
 - `min_pts` MinPts ≥ 3. Basic rule : = 2 * Dimension  (4 for 2D and 6 for 3D). Higher for noisy data.
     
-- ~`Epsilon` The maximum distance between two samples for one to be considered as in the neighborhood of the other.
+- ~~`Epsilon`~~ The maximum distance between two samples for one to be considered as in the neighborhood of the other.
 
 ! There is no Epsilon in the implementation becauze it will be calculate using elbow method with KNN.
 
