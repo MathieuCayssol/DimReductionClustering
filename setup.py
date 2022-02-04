@@ -12,6 +12,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/MathieuCayssol/DimReductionClustering/issues"
     },
     license='MIT',
-    packages=['toolbox'],
+    packages=['DimReductionClustering'],
     install_requires=['requests'],
 )
