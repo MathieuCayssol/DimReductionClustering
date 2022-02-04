@@ -44,7 +44,21 @@ X, X_test, Y, Y_test = train_test_split(x_train, y_train, stratify=y_train, test
 Fit the model (same interface as a sklearn estimators)
 ```
 model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4)
-
 ```
+
 Return the epsilon using elbow method :
-<img src="/images/epsilon_elbow.png?raw=true" width="300">
+
+<img src="/images/epsilon_elbow.png?raw=true" width="400">
+
+Fit the model (same interface as a sklearn estimators)
+```
+model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4)
+```
+
+Show the 2D plot :
+
+<img src="/images/mnist.png?raw=true" width="400">
+
+
+
+
