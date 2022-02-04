@@ -8,9 +8,8 @@ from sklearn.preprocessing import StandardScaler
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-!pip install umap-learn
+
 import umap.umap_ as umap
-!pip install git+https://github.com/christopherjenness/DBCV.git
 from DBCV.DBCV import DBCV
 
 class DimReductionClustering(BaseEstimator):
