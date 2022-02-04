@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(
-    name='DimReduction-Clustering',
+    name='DimReductionClustering',
     version='0.0.0',
     author='Mathieu Cayssol',
     author_email='mathieu.cayssol@gmail.com',
