@@ -31,7 +31,7 @@ Rerun this command to check for and install  updates .
 Example on mnist data.
 
 
-Import data
+- Import the data
 ```
 from sklearn.model_selection import train_test_split
 from keras.datasets import mnist
@@ -41,7 +41,8 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]*x_train.shape[
 X, X_test, Y, Y_test = train_test_split(x_train, y_train, stratify=y_train, test_size=0.9)
 ```
 
-Fit the model (same interface as a sklearn estimators)
+
+- Fit the model (same interface as a sklearn estimators)
 ```
 model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4)
 ```
@@ -50,13 +51,16 @@ Return the epsilon using elbow method :
 
 <img src="/images/epsilon_elbow.png?raw=true" width="400">
 
-Show the 2D plot :
+- Show the 2D plot :
 ```
 model.display_plotly()
 ```
 
 <img src="/images/minist.png?raw=true" width="400">
 
+- Get the score (Silhouette coefficient here)
 
-
+```
+model.score()
+```
 
