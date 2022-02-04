@@ -79,15 +79,62 @@ model.score()
 - `metric` (’euclidian’ by default). For NLP, good idea to choose ‘cosine’ as infrequent/frequent words will have different magnitude.
 
 
-## 4.1 DBSCAN (clustering)
+## 4.2 DBSCAN (clustering)
 
 - `min_pts` MinPts ≥ 3. Basic rule : = 2 * Dimension  (4 for 2D and 6 for 3D). Higher for noisy data.
     
-- ~~`Epsilon`~~ The maximum distance between two samples for one to be considered as in the neighborhood of the other.
+- ~~`Epsilon`~~ The maximum distance between two samples for one to be considered as in the neighborhood of the other. k-distance graph with k nearest neighbor. Sort result by descending order. Find elbow using orthogonal projection on a line between first and last point of the graph. y-coordinate of max(d((x,y),Proj(x,y))) is the optimal epsilon. [Click here to know more about elbow method](https://www.ccs.neu.edu/home/vip/teach/DMcourse/2_cluster_EM_mixt/notes_slides/revisitofrevisitDBSCAN.pdf)
 
-! There is no Epsilon in the implementation becauze it will be calculate using elbow method with KNN.
+! There is no Epsilon hyperparameters in the implementation, only k-th neighbor for KNN.
 
-- `knn_topk` k-th Nearest Neighbors.
-- k-distance graph with k nearest neighbor. Sort result by ascending order. Find elbow. and it will be the right epsilon distance. [Click here to know more about elbow method](https://www.ccs.neu.edu/home/vip/teach/DMcourse/2_cluster_EM_mixt/notes_slides/revisitofrevisitDBSCAN.pdf)
+- `knn_topk` k-th Nearest Neighbors. Between 3 and 20.
+
+## 4.3 Score metric
+
+- `Silhouette coefficient` ($\in[-1; 1]$)
+    
+- `Calinski-Harabasz` ($\in[0; +\infty]$)
+    
+- `DBCV` ($\in[-1,1]$) Very slow for high numbers of features. [Click here to know more about DBCV](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973440.96)
+
+
+# 5. BayesSearch example
+
+```
+!pip install scikit-optimize
+
+from skopt.space import Integer
+from skopt.space import Real
+from skopt.space import Categorical
+from skopt.utils import use_named_args
+from skopt import BayesSearchCV
+
+search_space = list()
+#UMAP Hyperparameters
+search_space.append(Integer(5, 200, name='n_neighbors', prior='uniform'))
+search_space.append(Real(0.0000001, 0.2, name='min_dist', prior='uniform'))
+#Search epsilon with KNN Hyperparameters
+search_space.append(Integer(3, 20, name='knn_topk', prior='uniform'))
+#DBSCAN Hyperparameters
+search_space.append(Integer(4, 15, name='min_pts', prior='uniform'))
+
+
+params = {search_space[i].name : search_space[i] for i in range((len(search_space)))}
+
+train_indices = [i for i in range(X.shape[0])]  # indices for training
+test_indices = [i for i in range(X.shape[0])]  # indices for testing
+
+cv = [(train_indices, test_indices)]
+
+clf = BayesSearchCV(estimator=DimReductionClustering(), search_spaces=params, n_jobs=-1, cv=cv)
+
+clf.fit(X)
+
+clf.best_params_
+
+clf.best_score_
+```
+
+
 
 
