@@ -1,4 +1,4 @@
-# DimReduction-Clustering
+# Dimensionality Reduction + Clustering + Unsupervised Score Metrics
 
 ## Installation and updating
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install DimReductionClustering like below. 
