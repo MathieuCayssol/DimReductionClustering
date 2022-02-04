@@ -64,3 +64,30 @@ model.display_plotly()
 model.score()
 ```
 
+# 4. Hyperparameters matters
+
+## 4.1 UMAP (dim reduction)
+
+- `n_neighbors`  (global/local tradeoff) (default:15 ; 2-1/4 of data)
+    
+    → low value (glue small chain, more local) 
+    
+    → high value (glue big chain, more global)
+    
+- `min_dist` (0 to 0.99) the minimum distance apart that points are allowed to be in the low dimensional representation. This means that low values of `min_dist` will result in clumpier embeddings. This can be useful if you are interested in clustering, or in finer topological structure. Larger values of `min_dist` will prevent UMAP from packing points together and will focus on the preservation of the broad topological structure instead.
+- `n_components` low dimensional space. 2 or 3
+- `metric` (’euclidian’ by default). For NLP, good idea to choose ‘cosine’ as infrequent/frequent words will have different magnitude.
+
+
+## 4.1 DBSCAN (clustering)
+
+- `min_pts` MinPts ≥ 3. Basic rule : = 2 * Dimension  (4 for 2D and 6 for 3D). Higher for noisy data.
+    
+- ~`Epsilon` The maximum distance between two samples for one to be considered as in the neighborhood of the other.
+
+! There is no Epsilon in the implementation becauze it will be calculate using elbow method with KNN.
+
+- `knn_topk` k-th Nearest Neighbors.
+- k-distance graph with k nearest neighbor. Sort result by ascending order. Find elbow. and it will be the right epsilon distance. [Click here to know more about elbow method](https://www.ccs.neu.edu/home/vip/teach/DMcourse/2_cluster_EM_mixt/notes_slides/revisitofrevisitDBSCAN.pdf)
+
+
