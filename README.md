@@ -47,4 +47,4 @@ model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='
 
 ```
 Return the epsilon using elbow method :
-![alt text](https://github.com/MathieuCayssol/DimReductionClustering/images/epsilon_elbow.png?raw=true)
+![alt text](/images/epsilon_elbow.png?raw=true)
