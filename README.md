@@ -91,11 +91,11 @@ model.score()
 
 ## 4.3 Score metric
 
-- `Silhouette coefficient` ($\in[-1; 1]$)
+- `Silhouette coefficient`
     
-- `Calinski-Harabasz` ($\in[0; +\infty]$)
+- `Calinski-Harabasz`
     
-- `DBCV` ($\in[-1,1]$) Very slow for high numbers of features. [Click here to know more about DBCV](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973440.96)
+- `DBCV` Very slow for high numbers of features. [Click here to know more about DBCV](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973440.96)
 
 
 # 5. BayesSearch example
