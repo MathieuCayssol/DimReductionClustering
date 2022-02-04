@@ -50,14 +50,12 @@ Return the epsilon using elbow method :
 
 <img src="/images/epsilon_elbow.png?raw=true" width="400">
 
-Fit the model (same interface as a sklearn estimators)
-```
-model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4)
-```
-
 Show the 2D plot :
+```
+model.display_plotly()
+```
 
-<img src="/images/mnist.png?raw=true" width="400">
+<img src="/images/minist.png?raw=true" width="400">
 
 
 
