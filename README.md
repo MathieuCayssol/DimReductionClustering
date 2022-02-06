@@ -42,9 +42,9 @@ X, X_test, Y, Y_test = train_test_split(x_train, y_train, stratify=y_train, test
 ```
 
 
-- Fit the model (same interface as a sklearn estimators)
+- Instanciation + fit the model (same interface as a sklearn estimators)
 ```
-model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4)
+model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4).fit(X)
 ```
 
 Return the epsilon using elbow method :
