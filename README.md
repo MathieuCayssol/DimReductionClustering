@@ -95,7 +95,7 @@ model.score()
     
 - `Calinski-Harabasz`
     
-- `DBCV` Very slow for high numbers of features. [Click here to know more about DBCV](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973440.96)
+- `DBCV` Very slow for high numbers of examples. [Click here to know more about DBCV](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973440.96)
 
 
 # 5. BayesSearch example
