@@ -32,7 +32,7 @@ Example on mnist data.
 
 
 - Import the data
-```
+```python
 from sklearn.model_selection import train_test_split
 from keras.datasets import mnist
 
@@ -43,7 +43,7 @@ X, X_test, Y, Y_test = train_test_split(x_train, y_train, stratify=y_train, test
 
 
 - Instanciation + fit the model (same interface as a sklearn estimators)
-```
+```python
 model = DimReductionClustering(n_components=2, min_dist=0.000001, score_metric='silhouette', knn_topk=8, min_pts=4).fit(X)
 ```
 
@@ -52,7 +52,7 @@ Return the epsilon using elbow method :
 <img src="/images/epsilon_elbow.png?raw=true" width="400">
 
 - Show the 2D plot :
-```
+```python
 model.display_plotly()
 ```
 
@@ -60,7 +60,7 @@ model.display_plotly()
 
 - Get the score (Silhouette coefficient here)
 
-```
+```python
 model.score()
 ```
 
@@ -100,7 +100,7 @@ model.score()
 
 # 5. BayesSearch example
 
-```
+```python
 !pip install scikit-optimize
 
 from skopt.space import Integer
