@@ -3,7 +3,7 @@
 1. Introduction
 2. Installation
 3. Usage
-4. Hyperparameters matters
+4. Hyperparameters matter
 5. BayesSearch example
 
 # 1. Introduction
@@ -64,7 +64,7 @@ model.display_plotly()
 model.score()
 ```
 
-# 4. Hyperparameters matters
+# 4. Hyperparameters matter
 
 ## 4.1 UMAP (dim reduction)
 
